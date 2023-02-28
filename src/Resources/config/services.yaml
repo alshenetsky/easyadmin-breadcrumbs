@@ -6,8 +6,17 @@
 
 services:
 
+    _instanceof:
+        Alshenetsky\EasyAdminBreadcrumbs\Contracts\BreadcrumbInterface:
+            tags: [ 'easyadmin.breadcrumb' ]
+
     Alshenetsky\EasyAdminBreadcrumbs\Breadcrumb\Breadcrumbs:
         public: true
+        arguments:
+            - '@Symfony\Component\HttpFoundation\RequestStack'
+            - !tagged_iterator easyadmin.breadcrumb
 
     Alshenetsky\EasyAdminBreadcrumbs\Twig\BreadcrumbsExtension:
+        arguments:
+            - '@Alshenetsky\EasyAdminBreadcrumbs\Breadcrumb\Breadcrumbs'
         tags: ['twig.extension']

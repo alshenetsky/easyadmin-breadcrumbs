@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
 #[Autoconfigure(tags: [self::SERVICE_TAG])]
 interface BreadcrumbInterface
 {
-    public const SERVICE_TAG = 'admin.breadcrumb';
+    public const SERVICE_TAG = 'easyadmin.breadcrumb';
 
     /**
      * Breadcrumb CRUD type (also matches with EasyCorp\Bundle\EasyAdminBundle\Config\Action::*)
