@@ -1,6 +1,6 @@
 <?php
 
-namespace Alshenetsky\EasyadminBreadcrumbs\DependencyInjection;
+namespace Alshenetsky\EasyadminBreadcrumbs;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
