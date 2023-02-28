@@ -21,6 +21,8 @@ interface BreadcrumbInterface
     /**
      * The class name of the entity related to the CRUD controller for which the breadcrumb is created
      * Used when generating a URL and determining which crumb is current.
+     *
+     * @return class-string
      */
     public function getEntityFqdn(): string;
 

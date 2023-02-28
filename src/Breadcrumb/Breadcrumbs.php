@@ -15,6 +15,9 @@ final class Breadcrumbs
      */
     private array $breadcrumbs = [];
 
+    /**
+     * @param iterable<BreadcrumbInterface> $breadcrumbs
+     */
     public function __construct(
         private RequestStack $requestStack,
         #[TaggedIterator(BreadcrumbInterface::SERVICE_TAG)] iterable $breadcrumbs,
