@@ -4,6 +4,7 @@ namespace Alshenetsky\EasyAdminBreadcrumbs\Breadcrumb;
 
 use Alshenetsky\EasyAdminBreadcrumbs\Contracts\BreadcrumbInterface;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Exception\ORMException;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Option\EA;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -118,5 +119,13 @@ abstract class AbstractBreadcrumb implements BreadcrumbInterface
         $this->filters = $filters;
 
         return $this;
+    }
+
+    /**
+     * @throws ORMException
+     */
+    public function getEntityReference(string $id): ?object
+    {
+        return $this->getEntityManager()->getReference($this->getEntityFqdn(), $id);
     }
 }
