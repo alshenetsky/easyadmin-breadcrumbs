@@ -12,7 +12,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Alshenetsky\\EasyadminBreadcrumbs\\": "src/"
+            "Alshenetsky\\EasyAdminBreadcrumbs\\": "src/"
         }
     },
     "authors": [

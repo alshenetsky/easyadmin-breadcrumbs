@@ -1,8 +1,8 @@
 <?php
 
-namespace Alshenetsky\EasyadminBreadcrumbs\Breadcrumb;
+namespace Alshenetsky\EasyAdminBreadcrumbs\Breadcrumb;
 
-use Alshenetsky\EasyadminBreadcrumbs\Contracts\BreadcrumbInterface;
+use Alshenetsky\EasyAdminBreadcrumbs\Contracts\BreadcrumbInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Option\EA;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;

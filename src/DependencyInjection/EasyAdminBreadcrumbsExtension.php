@@ -1,9 +1,9 @@
 <?php
 
-namespace Alshenetsky\EasyadminBreadcrumbs\DependencyInjection;
+namespace Alshenetsky\EasyAdminBreadcrumbs\DependencyInjection;
 
-use Alshenetsky\EasyadminBreadcrumbs\Breadcrumb\Breadcrumbs;
-use Alshenetsky\EasyadminBreadcrumbs\Twig\BreadcrumbsExtension;
+use Alshenetsky\EasyAdminBreadcrumbs\Breadcrumb\Breadcrumbs;
+use Alshenetsky\EasyAdminBreadcrumbs\Twig\BreadcrumbsExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 

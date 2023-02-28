@@ -1,6 +1,6 @@
 <?php
 
-namespace Alshenetsky\EasyadminBreadcrumbs\Breadcrumb;
+namespace Alshenetsky\EasyAdminBreadcrumbs\Breadcrumb;
 
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 

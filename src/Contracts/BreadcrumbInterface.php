@@ -1,9 +1,9 @@
 <?php
 
-namespace Alshenetsky\EasyadminBreadcrumbs\Contracts;
+namespace Alshenetsky\EasyAdminBreadcrumbs\Contracts;
 
-use Alshenetsky\EasyadminBreadcrumbs\Breadcrumb\BreadcrumbData;
-use Alshenetsky\EasyadminBreadcrumbs\Breadcrumb\BreadcrumbType;
+use Alshenetsky\EasyAdminBreadcrumbs\Breadcrumb\BreadcrumbData;
+use Alshenetsky\EasyAdminBreadcrumbs\Breadcrumb\BreadcrumbType;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
 

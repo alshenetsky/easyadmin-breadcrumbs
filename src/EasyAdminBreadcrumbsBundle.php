@@ -1,6 +1,6 @@
 <?php
 
-namespace Alshenetsky\EasyadminBreadcrumbs;
+namespace Alshenetsky\EasyAdminBreadcrumbs;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

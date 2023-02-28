@@ -1,8 +1,8 @@
 <?php
 
-namespace Alshenetsky\EasyadminBreadcrumbs\Twig;
+namespace Alshenetsky\EasyAdminBreadcrumbs\Twig;
 
-use Alshenetsky\EasyadminBreadcrumbs\Breadcrumb\Breadcrumbs;
+use Alshenetsky\EasyAdminBreadcrumbs\Breadcrumb\Breadcrumbs;
 use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
