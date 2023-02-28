@@ -1,12 +1,12 @@
 # easyadmin-breadcrumbs
-A bundle that allows you to add breadcrumbs to EasyAdmin
+A bundle that allows you to add breadcrumbs to [EasyAdmin](https://github.com/EasyCorp/EasyAdminBundle)
 
 ![A bundle that allows you to add breadcrumbs to EasyAdmin](/doc/images/promo.png)
 
 Installation
 ------------
 
-This bundle requires PHP 8.1 or higher and Symfony 6.0 or higher. Run the
+This bundle requires EasyAdmin 4.5 or higher, PHP 8.0 or higher and Symfony 5.4 or higher. Run the
 following command to install it in your application:
 
 ```
