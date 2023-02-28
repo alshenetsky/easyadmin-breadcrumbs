@@ -3,6 +3,7 @@
 namespace Alshenetsky\EasyAdminBreadcrumbs\DependencyInjection;
 
 use Alshenetsky\EasyAdminBreadcrumbs\Breadcrumb\Breadcrumbs;
+use Alshenetsky\EasyAdminBreadcrumbs\Contracts\BreadcrumbInterface;
 use Alshenetsky\EasyAdminBreadcrumbs\Twig\BreadcrumbsExtension;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -17,6 +18,9 @@ class EasyAdminBreadcrumbsExtension extends Extension
             ->addTag('easyadmin-breadcrumbs-bundle');
         $container->registerForAutoconfiguration(BreadcrumbsExtension::class)
             ->addTag('twig.extension');
+        $container->registerForAutoconfiguration(BreadcrumbInterface::class)
+            ->addTag(BreadcrumbInterface::SERVICE_TAG)
+        ;
 
         $loader = new YamlFileLoader(
             $container,
