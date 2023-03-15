@@ -29,7 +29,11 @@ final class Breadcrumbs
 
     public function getCurrentBreadcrumb(AdminContext $context): ?BreadcrumbInterface
     {
-        $breadcrumbType = BreadcrumbType::from($context->getCrud()->getCurrentAction());
+        $breadcrumbType = BreadcrumbType::tryFrom($context->getCrud()?->getCurrentPage());
+
+        if (null === $breadcrumbType) {
+            return null;
+        }
 
         foreach ($this->breadcrumbs as $breadcrumb) {
             if (

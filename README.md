@@ -55,7 +55,7 @@ class UserIndexBreadcrumb extends AbstractBreadcrumb
 
 Every Breadcrumb class will match against current url by `getType()` and `getEntityFqdn()` methods. So the breadcrumb from this example will appear on the `UserController::index` page.
 
-Method `getType()` returns `BreadcrumbType` enum which is perfectly matched with Action::* constants in EasyAdmin bundle.
+Method `getType()` returns `BreadcrumbType` enum which is perfectly matched with Crud::PAGE_* constants in EasyAdmin bundle.
 
 Additionally, you can implement `supports()` method if you need more complex logic whether to display breadcrumb on the page:
 
