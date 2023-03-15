@@ -87,7 +87,7 @@ final class Breadcrumbs
             );
         }
 
-        return sprintf('<ul class="breadcrumb mt-4">%s</ul>',
+        return sprintf('<ul class="breadcrumb">%s</ul>',
             implode(separator: '&nbsp;<span class="divider"><i class="action-icon fa-fw fa fa-arrow-right"></i></span>&nbsp;', array: $links)
         );
     }
