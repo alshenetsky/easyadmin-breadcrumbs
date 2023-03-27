@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Option\EA;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Uid\Uuid;
 use Symfony\Contracts\Service\Attribute\Required;
 
 abstract class AbstractBreadcrumb implements BreadcrumbInterface
@@ -124,7 +125,7 @@ abstract class AbstractBreadcrumb implements BreadcrumbInterface
     /**
      * @throws ORMException
      */
-    public function getEntityReference(string $id): ?object
+    public function getEntityReference(Uuid|int|string $id): ?object
     {
         return $this->getEntityManager()->getReference($this->getEntityFqdn(), $id);
     }
