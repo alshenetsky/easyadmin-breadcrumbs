@@ -68,11 +68,13 @@ final class Breadcrumbs
             $stack[] = $item;
         }
 
-        // make sure current breadcrumb has current url
-        $stack[0]->setUrl($context->getRequest()->getRequestUri());
+        if (isset($stack[0])) {
+            // make sure current breadcrumb has current url
+            $stack[0]->setUrl($context->getRequest()->getRequestUri());
 
-        // update page title to match current breadcrumb
-        $context->getCrud()->setCustomPageTitle($context->getCrud()->getCurrentPage(), $stack[0]->getName());
+            // update page title to match current breadcrumb
+            $context->getCrud()->setCustomPageTitle($context->getCrud()->getCurrentPage(), $stack[0]->getName());
+        }
 
         return array_reverse(array: $stack);
     }
