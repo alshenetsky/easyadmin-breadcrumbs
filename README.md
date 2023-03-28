@@ -198,6 +198,8 @@ Summary:
  * use `gather()` method to gather `BreadcrumbData` from current context (only for the CURRENT breadcrumb)
  * use `provide()` method to send `BreadcrumbData` to parent breadcrumb with very same keys that parent breadcrumb needs.
 
+### Handling exceptions
+By using EasyAdmin filters when displaying a list of child items, you may find that when you reset the filters, you end up outside the breadcrumb structure. To avoid encountering 500 errors, throw a `BreadcrumbNotApplicableException` in any of the `configure`, `gather`, or `provide` methods. This error will be handled correctly and the breadcrumbs will not be rendered.
 
 ### Placing breadcrumbs on the page:
 1. Override EadyAdmin `layout.html` twig template by creating file `templates/bundles/EasyAdminBundle/layout.html.twig`

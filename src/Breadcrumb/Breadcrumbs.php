@@ -3,6 +3,7 @@
 namespace Alshenetsky\EasyAdminBreadcrumbs\Breadcrumb;
 
 use Alshenetsky\EasyAdminBreadcrumbs\Contracts\BreadcrumbInterface;
+use Alshenetsky\EasyAdminBreadcrumbs\Exception\BreadcrumbNotApplicableException;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Option\EA;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
@@ -101,15 +102,19 @@ final class Breadcrumbs
      */
     private function walkBreadcrumbs(BreadcrumbInterface $breadcrumb, AdminContext $context, ?BreadcrumbData $parentData = null): \Generator
     {
-        $collectedData = $parentData ?? $breadcrumb->gather($context);
-        $breadcrumb->configure($collectedData);
+        try {
+            $collectedData = $parentData ?? $breadcrumb->gather($context);
+            $breadcrumb->configure($collectedData);
 
-        yield $breadcrumb;
+            yield $breadcrumb;
 
-        $parent = $this->breadcrumbs[$breadcrumb->getParent()] ?? null;
+            $parent = $this->breadcrumbs[$breadcrumb->getParent()] ?? null;
 
-        if ($parent) {
-            yield from $this->walkBreadcrumbs($parent, $context, $breadcrumb->provide($collectedData));
+            if ($parent) {
+                yield from $this->walkBreadcrumbs($parent, $context, $breadcrumb->provide($collectedData));
+            }
+        } catch (BreadcrumbNotApplicableException) {
+            return;
         }
     }
 }

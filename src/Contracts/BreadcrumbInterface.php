@@ -4,6 +4,7 @@ namespace Alshenetsky\EasyAdminBreadcrumbs\Contracts;
 
 use Alshenetsky\EasyAdminBreadcrumbs\Breadcrumb\BreadcrumbData;
 use Alshenetsky\EasyAdminBreadcrumbs\Breadcrumb\BreadcrumbType;
+use Alshenetsky\EasyAdminBreadcrumbs\Exception\BreadcrumbNotApplicableException;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
 
@@ -41,17 +42,23 @@ interface BreadcrumbInterface
     /**
      * Gathers data from current context and stores it into Breadcrumb data.
      * This method is invoking only for the current breadcrumb that matched current url.
+     *
+     * @throws BreadcrumbNotApplicableException
      */
     public function gather(AdminContext $context): BreadcrumbData;
 
     /**
      * Configures the breadcrumb by calling setName() and setUrl() here using previously gathered data @see gather().
+     *
+     * @throws BreadcrumbNotApplicableException
      */
     public function configure(BreadcrumbData $gatheredData): void;
 
     /**
      * This method provides parent breadcrumb with data it needs.
      * Should provide every data key that parent breadcrumb gathers: @see gather().
+     *
+     * @throws BreadcrumbNotApplicableException
      */
     public function provide(BreadcrumbData $gatheredData): BreadcrumbData;
 
