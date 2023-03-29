@@ -200,6 +200,19 @@ Summary:
 
 ### Handling exceptions
 By using EasyAdmin filters when displaying a list of child items, you may find that when you reset the filters, you end up outside the breadcrumb structure. To avoid encountering 500 errors, throw a `BreadcrumbNotApplicableException` in any of the `configure`, `gather`, or `provide` methods. This error will be handled correctly and the breadcrumbs will not be rendered.
+```php
+use \Alshenetsky\EasyAdminBreadcrumbs\Exception\BreadcrumbNotApplicableException;
+
+public function gather(AdminContext $context): BreadcrumbData
+{
+  return parent::gather($context)
+      ->set(
+         'userId',
+         $context->getRequest()->get('filters')['userId']['value'] ?? throw new BreadcrumbNotApplicableException() // the absence of a filter value means that the list of ALL orders is now displayed, not just the user's orders. In this case, breadcrumbs are not applicable.
+      )
+  ;
+}
+```
 
 ### Placing breadcrumbs on the page:
 1. Override EadyAdmin `layout.html` twig template by creating file `templates/bundles/EasyAdminBundle/layout.html.twig`
