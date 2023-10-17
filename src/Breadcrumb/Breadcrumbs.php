@@ -7,6 +7,7 @@ use Alshenetsky\EasyAdminBreadcrumbs\Exception\BreadcrumbNotApplicableException;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Option\EA;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 final class Breadcrumbs
@@ -28,7 +29,7 @@ final class Breadcrumbs
         }
     }
 
-    public function getCurrentBreadcrumb(AdminContext $context): ?BreadcrumbInterface
+    private function getCurrentBreadcrumb(AdminContext $context): ?BreadcrumbInterface
     {
         $breadcrumbType = BreadcrumbType::tryFrom($context->getCrud()?->getCurrentPage());
 
@@ -118,5 +119,16 @@ final class Breadcrumbs
         } catch (BreadcrumbNotApplicableException) {
             return;
         }
+    }
+
+    public function getRedirectForParentBreadcrumb(AdminContext $context): ?RedirectResponse {
+        $breadcrumbs = $this->getBreadcrumbs($context);
+
+        if (count($breadcrumbs) < 2) {
+            return null;
+        }
+
+        $breadcrumb = $breadcrumbs[count($breadcrumbs) - 2];
+        return new RedirectResponse($breadcrumb->getUrl());
     }
 }
