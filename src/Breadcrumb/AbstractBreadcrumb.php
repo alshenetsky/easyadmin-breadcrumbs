@@ -7,7 +7,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Exception\ORMException;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Option\EA;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
-use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGeneratorInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Uid\Uuid;
 use Symfony\Contracts\Service\Attribute\Required;
@@ -16,7 +16,7 @@ abstract class AbstractBreadcrumb implements BreadcrumbInterface
 {
     protected EntityManagerInterface $entityManager;
     private RequestStack $requestStack;
-    private AdminUrlGenerator $adminUrlGenerator;
+    private AdminUrlGeneratorInterface $adminUrlGenerator;
 
     protected string $name = '?';
     protected ?string $url = null;
@@ -27,7 +27,7 @@ abstract class AbstractBreadcrumb implements BreadcrumbInterface
     public function setDependencies(
         EntityManagerInterface $entityManager,
         RequestStack $requestStack,
-        AdminUrlGenerator $adminUrlGenerator,
+        AdminUrlGeneratorInterface $adminUrlGenerator,
     ): void {
         $this->entityManager = $entityManager;
         $this->requestStack = $requestStack;
@@ -87,7 +87,7 @@ abstract class AbstractBreadcrumb implements BreadcrumbInterface
     {
     }
 
-    public function getDefaultUrl(): AdminUrlGenerator
+    public function getDefaultUrl(): AdminUrlGeneratorInterface
     {
         $context = $this->requestStack->getCurrentRequest()->get(EA::CONTEXT_REQUEST_ATTRIBUTE);
 

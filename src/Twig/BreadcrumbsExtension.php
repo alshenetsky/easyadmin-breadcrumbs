@@ -22,7 +22,7 @@ class BreadcrumbsExtension extends AbstractExtension
         ];
     }
 
-    public function breadcrumbs()
+    public function breadcrumbs(): string
     {
         return $this->breadcrumbs->render();
     }

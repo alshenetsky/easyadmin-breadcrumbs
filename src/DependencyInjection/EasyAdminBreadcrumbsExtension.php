@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class EasyAdminBreadcrumbsExtension extends Extension
 {
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $container->registerForAutoconfiguration(Breadcrumbs::class)
             ->addTag('easyadmin-breadcrumbs-bundle');

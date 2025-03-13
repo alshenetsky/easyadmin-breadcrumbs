@@ -39,9 +39,9 @@ final class Breadcrumbs
 
         foreach ($this->breadcrumbs as $breadcrumb) {
             if (
-                $breadcrumb->getType() === $breadcrumbType &&
-                $breadcrumb->getEntityFqdn() === $context->getEntity()->getFqcn() &&
-                $breadcrumb->supports($context)
+                $breadcrumb->getType() === $breadcrumbType
+                && $breadcrumb->getEntityFqdn() === $context->getEntity()->getFqcn()
+                && $breadcrumb->supports($context)
             ) {
                 return $breadcrumb;
 
@@ -121,7 +121,8 @@ final class Breadcrumbs
         }
     }
 
-    public function getRedirectForParentBreadcrumb(AdminContext $context): ?RedirectResponse {
+    public function getRedirectForParentBreadcrumb(AdminContext $context): ?RedirectResponse
+    {
         $breadcrumbs = $this->getBreadcrumbs($context);
 
         if (count($breadcrumbs) < 2) {
@@ -129,6 +130,7 @@ final class Breadcrumbs
         }
 
         $breadcrumb = $breadcrumbs[count($breadcrumbs) - 2];
+
         return new RedirectResponse($breadcrumb->getUrl());
     }
 }
