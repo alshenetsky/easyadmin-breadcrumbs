@@ -55,7 +55,7 @@ final class Breadcrumbs
     /**
      * @return array<BreadcrumbInterface>
      */
-    private function getBreadcrumbs(AdminContext $context): array
+    public function getBreadcrumbs(AdminContext $context): array
     {
         $currentBreadcrumb = $this->getCurrentBreadcrumb($context);
 
